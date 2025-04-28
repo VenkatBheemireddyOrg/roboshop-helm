@@ -2,5 +2,5 @@ appName: shipping
 env: dev
 
 dbJob:
-  enabled: true
+  enabled: false
 
