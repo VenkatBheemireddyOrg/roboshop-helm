@@ -10,3 +10,10 @@ dev:
 	helm upgrade -i shipping . -f env-dev/shipping.yaml
 	helm upgrade -i frontend . -f env-dev/frontend.yaml
 
+dev-destroy:
+	helm uninstall cart
+	helm uninstall catalogue
+	helm uninstall user
+	helm uninstall payment
+	helm uninstall shipping
+	helm uninstall frontend
