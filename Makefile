@@ -11,6 +11,7 @@ dev:
 	helm upgrade -i frontend . -f env-dev/frontend.yaml
 
 dev-destroy:
+	git pull
 	helm uninstall cart
 	helm uninstall catalogue
 	helm uninstall user
