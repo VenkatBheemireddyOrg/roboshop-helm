@@ -4,9 +4,9 @@ env: dev
 dbJob:
   enabled: true
   jobName:
-    - file: app-user.sql
-      name: app-user
     - file: schema.sql
       name: schema
+    - file: app-user.sql
+      name: app-user
     - file: master-data.sql
       name: master-data
