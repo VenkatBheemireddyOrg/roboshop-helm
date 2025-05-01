@@ -3,7 +3,8 @@ kind: Deployment
 metadata:
   name: {{ .Values.appName }}
   labels:
-    app: {{ .Values.appName }}
+   {{- template "common.labels" . | indent 4 }}
+  #  app: {{ .Values.appName }}
 spec:
   replicas: {{ .Values.deployment.replicas }}
   selector:
