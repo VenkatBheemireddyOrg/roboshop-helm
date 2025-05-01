@@ -1,3 +1,4 @@
+{{/* Named Template */}}
 {{- define "common.labels" }}
 app: {{ .Values.appName }}
 appName: {{ .Values.appName }}
