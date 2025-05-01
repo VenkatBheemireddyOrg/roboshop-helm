@@ -3,22 +3,16 @@ kind: Deployment
 metadata:
   name: {{ .Values.appName }}
   labels:
-    #app: {{ .Values.appName }}
     {{- include "common.labels" . | indent 4 }}
-    #{{- template "common.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
-      #app: {{ .Values.appName }}
       {{- include "common.labels" . | indent 6 }}
-      #{{- template "common.labels" . | indent 6 }}
   template:
     metadata:
       labels:
-        #app: {{ .Values.appName }}
         {{- include "common.labels" . | indent 8 }}
-        #{{- template "common.labels" . | indent 8 }}
     spec:
       containers:
         - name: {{ .Values.appName }}
