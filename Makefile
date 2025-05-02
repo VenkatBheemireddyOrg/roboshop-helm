@@ -18,3 +18,12 @@ dev-destroy:
 	helm uninstall payment
 	helm uninstall shipping
 	helm uninstall frontend
+
+dev-destroy-argocd:
+	git pull
+	argocd app delete cart -y
+	argocd app delete catalogue -y
+	argocd app delete user -y
+	argocd app delete shipping -y
+	argocd app delete payment -y
+	argocd app delete frontend -y
