@@ -12,12 +12,12 @@ dev:
 
 dev-destroy:
 	git pull
-	helm uninstall cart dev
-	helm uninstall catalogue dev
-	helm uninstall user dev
-	helm uninstall payment dev
-	helm uninstall shipping dev
-	helm uninstall frontend dev
+	helm uninstall cart
+	helm uninstall catalogue
+	helm uninstall user
+	helm uninstall payment
+	helm uninstall shipping
+	helm uninstall frontend
 
 dev-apply-argocd:
 	git pull
