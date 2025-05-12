@@ -12,12 +12,21 @@ dev:
 
 dev-destroy:
 	git pull
-	helm uninstall cart
-	helm uninstall catalogue
-	helm uninstall user
-	helm uninstall payment
-	helm uninstall shipping
-	helm uninstall frontend
+	helm uninstall cart dev
+	helm uninstall catalogue dev
+	helm uninstall user dev
+	helm uninstall payment dev
+	helm uninstall shipping dev
+	helm uninstall frontend dev
+
+dev-apply-argocd:
+	git pull
+	bash argocd.sh cart dev
+	bash argocd.sh catalogue dev
+	bash argocd.sh user dev
+	bash argocd.sh shipping dev
+	bash argocd.sh payment dev
+	bash argocd.sh frontend dev
 
 dev-destroy-argocd:
 	git pull
