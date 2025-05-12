@@ -15,6 +15,6 @@ if [ $? -ne 0 ]; then
 fi
 
 
-argocd app create ${app_name} --repo https://github.com/VenkatBheemireddy/roboshop-helm.git --dest-namespace default --dest-server https://kubernetes.default.svc --values env-${env}/${app_name}.yaml  --path .
+argocd app create ${app_name} --repo https://github.com/VenkatBheemireddyOrg/roboshop-helm.git --dest-namespace default --dest-server https://kubernetes.default.svc --values env-${env}/${app_name}.yaml  --path .
 argocd app sync ${app_name}
 
