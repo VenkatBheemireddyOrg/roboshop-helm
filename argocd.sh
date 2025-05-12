@@ -30,3 +30,4 @@ fi
 
 argocd app create --upsert ${app_name} --repo https://github.com/VenkatBheemireddyOrg/roboshop-helm.git --dest-namespace default --dest-server https://kubernetes.default.svc --values env-${env}/${app_name}.yaml  --path .
 argocd app sync ${app_name}
+
