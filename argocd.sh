@@ -14,14 +14,17 @@ if [ -z "$app_name" -o -z "$env" ]; then
   exit 1
 fi
 
+
 # If not logged in we will login
 if [ ! -e ~/.config/argocd/config ]; then
   ARGOCD_LOGIN
 fi
 
+
 current_ip=$(cat ~/.config/argocd/config  | grep ^current-context | awk '{print $NF}')
 nc -w 3 -z $current_ip 443 &>/dev/null
 if [ $? -ne 0 ]; then ARGOCD_LOGIN ; fi
+
 
 argocd account list &>/dev/null
 if [ $? -ne 0 ]; then
