@@ -1,11 +1,14 @@
 appName: frontend
-env: dev
 
 service:
   containerPort: 80
   servicePort: 80
-  type: LoadBalancer
+# type: LoadBalancer
 
+env: dev
 
+#added this code to activate ingress
+ingress:
+  enabled: true
 
 
