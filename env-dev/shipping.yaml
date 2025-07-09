@@ -6,7 +6,7 @@ dbJob:
   image: roboshopb82.azurecr.io/roboshop-shipping-schema-loader:latest
   jobName:
     - file: main
-    - name: main
+      name: main
 #    - file: schema.sql
 #      name: schema
 #    - file: app-user.sql
