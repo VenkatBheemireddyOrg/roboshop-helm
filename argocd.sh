@@ -7,7 +7,7 @@ export PATH=/github-runner/.local/bin:/github-runner/bin:/usr/local/bin:/usr/bin
 ARGOCD_LOGIN() {
     argocd_ip=$(kubectl get svc -n argocd argocd-server -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
     argocd_password=$(kubectl get secret argocd-initial-admin-secret -n argocd -o=jsonpath='{.data.password}' | base64 --decode)
-    argocd login argocd-$env.azdevopsv82.online:443 --insecure --username admin --password ${argocd_password}  --grpc-web
+    argocd login argocd-dev.azdevopsv82.online:443 --insecure --username admin --password ${argocd_password}  --grpc-web
 }
 
 if [ -z "$app_name" -o -z "$env" ]; then
