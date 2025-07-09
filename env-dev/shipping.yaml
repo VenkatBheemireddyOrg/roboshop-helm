@@ -3,10 +3,13 @@ env: dev
 
 dbJob:
   enabled: true
+  image: roboshopb82.azurecr.io/roboshop-shipping-schema-loader:latest
   jobName:
-    - file: schema.sql
-      name: schema
-    - file: app-user.sql
-      name: app-user
-    - file: master-data.sql
-      name: master-data
+    - file: main
+    - name: main
+#    - file: schema.sql
+#      name: schema
+#    - file: app-user.sql
+#      name: app-user
+#    - file: master-data.sql
+#      name: master-data
