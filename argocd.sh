@@ -33,6 +33,10 @@ if [ $? -ne 0 ]; then
   ARGOCD_LOGIN
 fi
 
+echo $app_name
+echo $env
+echo $appImage
+
 argocd app create --upsert ${app_name} --repo https://github.com/VenkatBheemireddyOrg/roboshop-helm.git --dest-namespace default --dest-server https://kubernetes.default.svc --values env-${env}/${app_name}.yaml  --path .  --helm-set appImage=$appImage --grpc-web
 argocd app sync ${app_name}  --grpc-web
 
