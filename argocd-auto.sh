@@ -6,7 +6,7 @@ argocd login argocd-dev.azdevopsv82.online:443 --insecure --username admin --pas
 
 ### for app_name in cart catalogue user shipping payment frontend; do
 
-for app_name in catalogue ; do
+for app_name in cart user payment frontend ; do
 
 appImage=$(gh search commits --repo VenkatBheemireddyOrg/roboshop-$app_name "Latest Changes" --sort committer-date | head -1 | awk '{print $2}')
 argocd app create --upsert ${app_name} --repo https://github.com/VenkatBheemireddyOrg/roboshop-helm.git --dest-namespace default --dest-server https://kubernetes.default.svc --values env-dev/${app_name}.yaml  --path . --helm-set appImage=roboshopb82.azurecr.io/roboshop-$app_name:$appImage --grpc-web
