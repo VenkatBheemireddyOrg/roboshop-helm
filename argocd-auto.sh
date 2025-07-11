@@ -13,3 +13,11 @@ argocd app create --upsert ${app_name} --repo https://github.com/VenkatBheemired
 argocd app sync ${app_name} --grpc-web
 
 done
+
+for app_name in catalogue shipping ; do
+
+appImage=$(gh search commits --repo VenkatBheemireddyOrg/roboshop-$app_name "Latest Changes" --sort committer-date | head -1 | awk '{print $2}')
+argocd app create --upsert ${app_name} --repo https://github.com/VenkatBheemireddyOrg/roboshop-helm.git --dest-namespace default --dest-server https://kubernetes.default.svc --values env-dev/${app_name}.yaml  --path . --helm-set appImage=roboshopb82.azurecr.io/roboshop-$app_name:$appImage --grpc-web
+argocd app sync ${app_name} --grpc-web
+
+done
