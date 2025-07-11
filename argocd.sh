@@ -5,9 +5,11 @@ appImage=$3
 export PATH=/github-runner/.local/bin:/github-runner/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
 
 ARGOCD_LOGIN() {
-    argocd_password=$(kubectl get secret argocd-initial-admin-secret -n argocd -o=jsonpath='{.data.password}' | base64 --decode)
-    argocd login argocd-dev.azdevopsv82.online:443 --insecure --username admin --password ${argocd_password}  --grpc-web
+argocd_ip=$(kubectl get svc -n argocd argocd-server -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+argocd_password=$(kubectl get secret argocd-initial-admin-secret -n argocd -o=jsonpath='{.data.password}' | base64 --decode)
+argocd login argocd-dev.azdevopsv82.online --insecure --username admin --password ${argocd_password} --grpc-web
 }
+
 
 if [ -z "$app_name" -o -z "$env" ]; then
   echo Input AppName or env is missing
